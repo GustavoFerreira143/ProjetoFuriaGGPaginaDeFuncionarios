@@ -56,7 +56,7 @@ export function recebeInsereNoticias() {
         setError("Erro ao enviar notícia.");
       }
     } catch (error) {
-      console.error("Erro ao enviar notícia:", error);
+
       if (error.response?.data?.error) {
         setError(error.response.data.error);
       } else {

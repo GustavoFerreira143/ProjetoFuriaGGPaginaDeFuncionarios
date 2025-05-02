@@ -20,7 +20,6 @@ export function carregaNoticias()
             setNoticias(false);
           }
         } catch (error) {
-          console.error("Erro ao receber notícias:", error);
           setNoticias(false);
         }
       }

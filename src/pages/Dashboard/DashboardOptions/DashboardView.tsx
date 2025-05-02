@@ -38,11 +38,11 @@ function DashboardView() {
             }, {
                 withCredentials: true
             });
-            console.log(response.data)
+
             setDadosGrafico(response.data.dados);
 
         } catch (error) {
-            console.error("Erro ao gerar gráfico:", error);
+
             alert("Erro ao gerar gráfico. Verifique os dados e tente novamente.");
         }
     };

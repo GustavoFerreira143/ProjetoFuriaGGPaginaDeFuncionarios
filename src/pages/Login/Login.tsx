@@ -24,7 +24,7 @@ function Login() {
                 window.location.replace('/dashboard'); // redirecionamento caso já esteja logado
             })
             .catch(error => {
-                console.error("Erro ao verificar o login:", error);
+
             });
         }
     

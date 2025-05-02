@@ -81,7 +81,7 @@ function EnvioDeAlertas() {
 
     setIsLoading(true);
     setMensagem('');
-    console.log(dadosEnvio.linkimg)
+
     try {
       const response = await axios.post('https://web-production-7ea7.up.railway.app/func/enviaEmailusers/aut', {
         ...dadosEnvio,
