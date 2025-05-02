@@ -232,7 +232,7 @@ function MensagemFeedback() {
               <p >
                 <strong>
                   Jogador Favorito:</strong>{" "}
-                {infoUser.membroFavorito == "" ? infoUser.membroFavorito : "Não Informado"}
+                {infoUser.membroFavorito != "" ? infoUser.membroFavorito : "Não Informado"}
               </p>
               <div className='flex my-5'>
                 <p>
