@@ -87,7 +87,7 @@ function NavBar() {
                             id="dropdownMenu"
                             className="opacity-0 scale-60 invisible transition-all duration-300 ease-out absolute w-35 bg-white shadow-md z-30 mt-3 bg-white shadow-md rounded-md"
                         >
-                            <a className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer" onClick={() => { sessionStorage.setItem('telaUser',''); sessionStorage.setItem('permissaoUser',''); EfetuarLogout();}}>Efetuar Logout</a>
+                            <a className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer" onClick={() => { localStorage.setItem('telaUser',''); localStorage.setItem('permissaoUser',''); EfetuarLogout();}}>Efetuar Logout</a>
 
                         </div>
                     </div>
