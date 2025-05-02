@@ -70,7 +70,7 @@ function Dashboard() {
 
   return (
     <>
-      <NavBar />
+      <NavBar/>
       <img  className='absolute w-full h-screen ' src='/FuriaFundo.png' />
       <div id="CorpoDashboard" className='w-full h-screen bg-black/95 relative'>
         <img src='./justify.svg' className={`z-30 w-10 absolute left-5 top-3 cursor-pointer ${Tela ? 'animate-open' : 'animate-close'}`} onClick={() => {
@@ -171,30 +171,30 @@ function Dashboard() {
 
         {
           telas.inserirUser && permissaoUser === 'admin' ?
-            <InserirUser /> : ''
+            <InserirUser/> : ''
         }
 
         {
           telas.enviarPromo ?
-            <EnvioDeAlertas /> : ''
+            <EnvioDeAlertas/> : ''
         }
 
         {
           telas.atualizaNot ?
-            <AtualizaNoticias /> : ''
+            <AtualizaNoticias/> : ''
         }
 
         {
           telas.mensagemFeedback ?
-            <MensagemFeedback /> : ''
+            <MensagemFeedback/> : ''
         }
 
         {
           telas.verificaUsers && permissaoUser === 'admin' ?
-            <VerificaAtualizaUser /> : ''
+            <VerificaAtualizaUser/> : ''
         }
       </div>
-      <Footer />
+      <Footer/>
     </>
 
   )

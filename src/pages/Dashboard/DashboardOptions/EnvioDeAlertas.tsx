@@ -129,7 +129,7 @@ function EnvioDeAlertas() {
                   document.body.style.overflow = 'auto';
                 }}
               >
-                <img src="/x-lg.svg" alt="" className="h-10" />
+                <img src="/x-lg.svg" alt="" className="h-10"/>
               </div>
             </div>
 
@@ -144,9 +144,9 @@ function EnvioDeAlertas() {
                   value="todos"
                   checked={usuarioDestino === 'todos'}
                   onChange={handleChange}
-                />
+               />
                 Para todos os fãs
-              </label><br />
+              </label><br/>
 
               <label>
                 <input
@@ -156,9 +156,9 @@ function EnvioDeAlertas() {
                   value="catalogo"
                   checked={usuarioDestino === 'catalogo'}
                   onChange={handleChange}
-                />
+               />
                 Fãs com interesse no Catálogo de Roupas
-              </label><br />
+              </label><br/>
 
               <label>
                 <input
@@ -168,7 +168,7 @@ function EnvioDeAlertas() {
                   value="games"
                   checked={usuarioDestino === 'games'}
                   onChange={handleChange}
-                />
+               />
                 Fãs com interesse em Games/Torneios
               </label>
 
@@ -190,9 +190,9 @@ function EnvioDeAlertas() {
         Envio de Email Promocionais Furia
       </h1>
       {mensagem != '' ? <h1 className='text-center text-red-500'>{mensagem}</h1> : ''}
-      <hr />
+      <hr/>
       <p className='text-white mt-5 text-center'> Está página deve ser utilizada somente para envio de Emails para Fãns que aceitaram receber anuncios Promocionais Furia ao Enviar você pode personalizar para quem deve receber o mesmo.
-        <br />
+        <br/>
         A ordem das informações serão a ordem em que os items serão enviados</p>
 
       <div className='w-[50%] mx-auto text-white mt-10'>
@@ -204,24 +204,24 @@ function EnvioDeAlertas() {
           className='w-full border rounded px-2 py-2 mb-4 mt-2'
           value={dadosEnvio.assunto}
           onChange={(e) => { setdadosEnvio({ ...dadosEnvio, assunto: e.currentTarget.value }) }}
-        />
+       />
         <p>
           Insira a Mensagem Promocional
         </p>
         <textarea className='w-full h-40 border rounded px-2 py-2 mb-4 mt-2' value={dadosEnvio.mensagem1}
-          onChange={(e) => { setdadosEnvio({ ...dadosEnvio, mensagem1: e.currentTarget.value }) }} />
+          onChange={(e) => { setdadosEnvio({ ...dadosEnvio, mensagem1: e.currentTarget.value }) }}/>
 
         <input
           type="text"
           className='w-full border-b  px-2 py-2 mb-4 mt-2 text-center' placeholder='Insira a URL da Img Ex:https://furiagg.fbitsstatic.net/img/p/camiseta-oficial-furia-adidas-preta-150265/337491-2.jpg?w=4' value={exibeImagem} onChange={(e) => { setExibeImagem(e.currentTarget.value); setdadosEnvio({ ...dadosEnvio, linkimg: e.currentTarget.value }) }}></input>
         <p className='text-center my-2'>A imagem pode ser visualizada Abaixo(OBS: se a imagem não aparecer após digitar a url Corrija, pois ela deve ficar visivel automaticamente)</p>
         <div className=''>
-          <img className='rounded-md h-[40%] w-[40%] mx-auto' src={exibeImagem} />
+          <img className='rounded-md h-[40%] w-[40%] mx-auto' src={exibeImagem}/>
         </div>
 
         <p className='mt-5'>Case Queira Inserir um texto abaixo da imagem insira Aqui</p>
         <textarea className='w-full h-40 border rounded px-2 py-2 mb-4 mt-2' value={dadosEnvio.mensagem2}
-          onChange={(e) => { setdadosEnvio({ ...dadosEnvio, mensagem2: e.currentTarget.value }) }} />
+          onChange={(e) => { setdadosEnvio({ ...dadosEnvio, mensagem2: e.currentTarget.value }) }}/>
 
         <button className='w-full bg-white text-black rounded-md p-3 my-5 hover:bg-black hover:text-white transition easy-in-out duration-500 cursor-pointer' onClick={EnviarDadosPromocao}>Enviar Email</button>
       </div>

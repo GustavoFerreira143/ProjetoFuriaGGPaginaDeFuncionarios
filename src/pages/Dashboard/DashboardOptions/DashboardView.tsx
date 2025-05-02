@@ -199,9 +199,9 @@ function DashboardView() {
                                                         return valor;
                                                     }}
                                                 />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Legend />
+                                                <YAxis/>
+                                                <Tooltip/>
+                                                <Legend/>
                                                 <Bar dataKey="quantidade" fill="#1E40AF" />
                                             </BarChart>
                                         </ResponsiveContainer>
@@ -218,9 +218,9 @@ function DashboardView() {
                                                         return valor;
                                                     }}
                                                 />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Legend />
+                                                <YAxis/>
+                                                <Tooltip/>
+                                                <Legend/>
                                                 <Line type="monotone" dataKey="quantidade" stroke="#3B82F6" />
                                             </LineChart>
                                         </ResponsiveContainer>
@@ -238,10 +238,10 @@ function DashboardView() {
                                                         return valor;
                                                     }}
                                                 />
-                                                <YAxis />
-                                                <Tooltip />
-                                                <Legend />
-                                                <Area type="monotone" dataKey="quantidade" stroke="#60A5FA" fill="#60A5FA" />
+                                                <YAxis/>
+                                                <Tooltip/>
+                                                <Legend/>
+                                                <Area type="monotone" dataKey="quantidade" stroke="#60A5FA" fill="#60A5FA"/>
                                             </AreaChart>
                                         </ResponsiveContainer>
                                     )}
@@ -259,7 +259,7 @@ function DashboardView() {
                 <h1 className='text-center text-lg text-white my-5 ml-5 md:ml-0 font-semibold'>
                     Analise de Graficos de FeedBack
                 </h1>
-                <hr />
+                <hr/>
                 {permissaoUser == 'admin' ?
                     <div className='flex justify-center mt-5'>
                         <button className='bg-white p-3 rounded-md transition easy-in-out hover:bg-blue-500 duration-600 cursor-pointer' onClick={() => setJanelaVisivel(true)}>Criar Gráfico Personalizado</button>
@@ -289,14 +289,14 @@ function DashboardView() {
                                             <Cell
                                                 key={index}
                                                 fill={entry.interesseEmComp === "Sim" ? "#1E40AF" : "#19B0EC"}
-                                            />
+                                           />
                                         ))}
                                     </Pie>
                                     <Tooltip
                                         contentStyle={{ backgroundColor: '#222222', borderColor: '#ffffff', color: '#ffffff' }}
                                         itemStyle={{ color: '#ffffff' }}
                                         labelStyle={{ color: '#fff', fontWeight: 'bold' }}
-                                    />
+                                   />
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -319,14 +319,14 @@ function DashboardView() {
                                             <Cell
                                                 key={index}
                                                 fill={entry.interesseCatalogo === "Sim" ? "#1E40AF" : "#19B0EC"}
-                                            />
+                                           />
                                         ))}
                                     </Pie>
                                     <Tooltip
                                         contentStyle={{ backgroundColor: '#222222', borderColor: '#ffffff', color: '#ffffff' }}
                                         itemStyle={{ color: '#ffffff' }}
                                         labelStyle={{ color: '#fff', fontWeight: 'bold' }}
-                                    />
+                                   />
                                 </PieChart>
                             </ResponsiveContainer>
                         </div>
@@ -349,7 +349,7 @@ function DashboardView() {
                                             <Cell
                                                 key={index}
                                                 fill={entry.receberPromo === "Sim" ? "#1E40AF" : "#19B0EC"}
-                                            />
+                                           />
                                         ))}
                                     </Pie>
                                     <Tooltip
@@ -402,11 +402,11 @@ function DashboardView() {
                         <h2 className="text-xl font-bold mb-3 text-center text-white">Redes Socias Mais Utilizadas</h2>
                         <ResponsiveContainer width="100%" height={300}>
                             <RadarChart cx="50%" cy="50%" outerRadius="80%" data={dados.redeSocialPreferida}>
-                                <PolarGrid />
-                                <PolarAngleAxis dataKey="redeSocial" />
-                                <PolarRadiusAxis />
-                                <Radar name="Usuários" dataKey="Quantidade" fill="#1E40AF" fillOpacity={0.6} />
-                                <Tooltip />
+                                <PolarGrid/>
+                                <PolarAngleAxis dataKey="redeSocial"/>
+                                <PolarRadiusAxis/>
+                                <Radar name="Usuários" dataKey="Quantidade" fill="#1E40AF" fillOpacity={0.6}/>
+                                <Tooltip/>
                             </RadarChart>
                         </ResponsiveContainer>
                     </div>
@@ -421,11 +421,11 @@ function DashboardView() {
                         <h2 className="text-xl font-bold mb-3 text-center text-white">Usuários por Estado</h2>
                         <ResponsiveContainer width="100%" height={500}>
                             <BarChart data={dados.usuariosPorEstado} layout="vertical">
-                                <XAxis type="number" stroke="#fff" />
-                                <YAxis type="category" dataKey="estado" stroke="#fff" />
-                                <Tooltip contentStyle={{ backgroundColor: '#222', borderColor: '#666', color: '#fff' }} />
-                                <Legend wrapperStyle={{ color: '#fff' }} />
-                                <Bar dataKey="Quantidade" fill="#60a5fa" />
+                                <XAxis type="number" stroke="#fff"/>
+                                <YAxis type="category" dataKey="estado" stroke="#fff"/>
+                                <Tooltip contentStyle={{ backgroundColor: '#222', borderColor: '#666', color: '#fff' }}/>
+                                <Legend wrapperStyle={{ color: '#fff' }}/>
+                                <Bar dataKey="Quantidade" fill="#60a5fa"/>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
@@ -437,11 +437,11 @@ function DashboardView() {
                         <h2 className="text-xl font-bold mb-3 text-center text-white">Ranking de Jogos Favoritos</h2>
                         <ResponsiveContainer width="100%" height={500}>
                             <BarChart data={dados.rankJogosAmados} layout="vertical">
-                                <XAxis type="number" stroke="#fff" />
-                                <YAxis type="category" dataKey="jogo" stroke="#fff" />
-                                <Tooltip contentStyle={{ backgroundColor: '#222', borderColor: '#fff', color: '#fff' }} />
-                                <Legend wrapperStyle={{ color: '#fff' }} />
-                                <Bar dataKey="Quantidade" fill="#60a5fa" />
+                                <XAxis type="number" stroke="#fff"/>
+                                <YAxis type="category" dataKey="jogo" stroke="#fff"/>
+                                <Tooltip contentStyle={{ backgroundColor: '#222', borderColor: '#fff', color: '#fff' }}/>
+                                <Legend wrapperStyle={{ color: '#fff' }}/>
+                                <Bar dataKey="Quantidade" fill="#60a5fa"/>
                             </BarChart>
                         </ResponsiveContainer>
                     </div>
