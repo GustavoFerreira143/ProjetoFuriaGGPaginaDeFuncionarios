@@ -31,7 +31,7 @@ function NavBar() {
 
     function EfetuarLogout()
     {
-        axios.post('https://localhost:5000/func/conferelogin/logout', { nome: "Vazio" }, {
+        axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/logout', { nome: "Vazio" }, {
             withCredentials: true
           })
             .then(response => {
