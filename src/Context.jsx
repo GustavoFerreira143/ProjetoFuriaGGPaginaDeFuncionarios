@@ -10,8 +10,8 @@ export const UserProvider = ({ children }) => {
 
     useEffect(() => {
         // Aqui você pode pegar o permissaoUser do localStorage, cookie ou token
-        const storedPermissaoUser = sessionStorage.getItem('permissaoUser');
-        const storedtelaUser = sessionStorage.getItem('telaUser');
+        const storedPermissaoUser = localStorage.getItem('permissaoUser');
+        const storedtelaUser = localStorage.getItem('telaUser');
         if (storedPermissaoUser) {
             setPermissaoUser(storedPermissaoUser);
         }

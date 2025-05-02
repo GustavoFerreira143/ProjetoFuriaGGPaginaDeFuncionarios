@@ -40,7 +40,7 @@ function Login() {
         })
         .then(response => {
             const permissaoUser = response.data.permissaoUser;
-            sessionStorage.setItem('permissaoUser', response.data.permissaoUser);
+            localStorage.setItem('permissaoUser', response.data.permissaoUser);
             window.location.replace('/dashboard');
         })
         .catch(error => {

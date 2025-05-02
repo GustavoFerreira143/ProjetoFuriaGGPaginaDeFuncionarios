@@ -41,13 +41,13 @@ function Dashboard() {
     });
   }
   useEffect(() => {
-    const telaSalva = sessionStorage.getItem('telaUser');
+    const telaSalva = localStorage.getItem('telaUser');
   
     if (telaSalva) {
       ativarTela(telaSalva);
     } else {
       ativarTela('dashboard');
-      sessionStorage.setItem('telaUser', 'dashboard');
+      localStorage.setItem('telaUser', 'dashboard');
     }
   }, []);
 
@@ -92,7 +92,7 @@ function Dashboard() {
                 if (Tela) {
                   setFechaTela(true);
                   setTimeout(() => setTela(false), 1000);
-                  sessionStorage.setItem('telaUser', 'dashboard')
+                  localStorage.setItem('telaUser', 'dashboard')
                 }
               }}>
                 Dashboard
@@ -106,7 +106,7 @@ function Dashboard() {
                     if (Tela) {
                       setFechaTela(true);
                       setTimeout(() => setTela(false), 1000);
-                      sessionStorage.setItem('telaUser', 'inserirUser')
+                      localStorage.setItem('telaUser', 'inserirUser')
                     }
                   }}>
                     Adicionar Usuário
@@ -117,7 +117,7 @@ function Dashboard() {
                     if (Tela) {
                       setFechaTela(true);
                       setTimeout(() => setTela(false), 1000);
-                      sessionStorage.setItem('telaUser', 'verificaUsers')
+                      localStorage.setItem('telaUser', 'verificaUsers')
                     }
                   }}>
                     Atualizar Usuários
@@ -131,7 +131,7 @@ function Dashboard() {
                 if (Tela) {
                   setFechaTela(true);
                   setTimeout(() => setTela(false), 1000);
-                  sessionStorage.setItem('telaUser', 'enviarPromo')
+                  localStorage.setItem('telaUser', 'enviarPromo')
                 }
               }}>
                 Enviar Promoções
@@ -142,7 +142,7 @@ function Dashboard() {
                 if (Tela) {
                   setFechaTela(true);
                   setTimeout(() => setTela(false), 1000);
-                  sessionStorage.setItem('telaUser', 'atualizaNot')
+                  localStorage.setItem('telaUser', 'atualizaNot')
                 }
               }}>
                 Atualizar Notícias
@@ -153,7 +153,7 @@ function Dashboard() {
                 if (Tela) {
                   setFechaTela(true);
                   setTimeout(() => setTela(false), 1000);
-                  sessionStorage.setItem('telaUser', 'mensagemFeedback')
+                  localStorage.setItem('telaUser', 'mensagemFeedback')
                 }
               }}>
                 Detalhes Pesquisas De Usuários
