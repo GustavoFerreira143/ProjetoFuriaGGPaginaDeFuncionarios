@@ -118,8 +118,8 @@ function DashboardView() {
                                     required
                                 >
                                     <option value="">Selecione</option>
-                                    <option value="fansFuria">Fans da Furia</option>
-                                    <option value="JogosFavoritos">Jogos Favoritos dos Fãns</option>
+                                    <option value="fansfuria">Fans da Furia</option>
+                                    <option value="jogosfavoritos">Jogos Favoritos dos Fãns</option>
                                 </select>
                             </div>
 
@@ -132,7 +132,7 @@ function DashboardView() {
                                     required
                                 >
                                     <option value="">Selecione</option>
-                                    {tabela === 'fansFuria' && (
+                                    {tabela === 'fansfuria' && (
                                         <>
                                             <option value="estado">Estado</option>
                                             <option value="redeSocial">Rede Social</option>
@@ -145,7 +145,7 @@ function DashboardView() {
                                             <option value="vizualizado">Visualizado</option>
                                         </>
                                     )}
-                                    {tabela === 'JogosFavoritos' && (
+                                    {tabela === 'jogosfavoritos' && (
                                         <option value="nomeJogo">Nome do Jogo</option>
                                     )}
                                 </select>
