@@ -31,7 +31,7 @@ function DashboardView() {
         }
 
         try {
-            const response = await axios.post("https://localhost:5000/rec/gera/views/grafic", {
+            const response = await axios.post("https://web-production-7ea7.up.railway.app/rec/gera/views/grafic", {
                 tabela,
                 campo_agrupamento: campo,
                 condicoes: condicoes || null
@@ -50,7 +50,7 @@ function DashboardView() {
     useEffect(() => {
         async function VerificaUser() {
             try {
-                await axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+                await axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
                     withCredentials: true
                 });
             } catch (error) {
@@ -60,7 +60,7 @@ function DashboardView() {
 
         async function CarregaDashboard() {
             try {
-                const response = await axios.get('https://localhost:5000/rec/dash/views/user', {
+                const response = await axios.get('https://web-production-7ea7.up.railway.app/rec/dash/views/user', {
                     withCredentials: true
                 });
 

@@ -27,7 +27,7 @@ function MensagemFeedback() {
 
   useEffect(() => {
     function VerificaUser() {
-      axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+      axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
         withCredentials: true
       })
         .then(response => {
@@ -73,7 +73,7 @@ function MensagemFeedback() {
     if (filtros.somenteVizualizados) params.append('somenteVizualizados', filtros.somenteVizualizados)
 
     // Envia a requisição com os filtros
-    axios.get(`https://localhost:5000/verif/pesquisa/user/rec?${params.toString()}`, {
+    axios.get(`https://web-production-7ea7.up.railway.app/verif/pesquisa/user/rec?${params.toString()}`, {
       withCredentials: true
     })
       .then(response => {
@@ -98,7 +98,7 @@ function MensagemFeedback() {
 
   async function RecebeInfosUser() {
     try {
-      const response = await axios.get('https://localhost:5000/verif/pesquisa/user/rec', {
+      const response = await axios.get('https://web-production-7ea7.up.railway.app/verif/pesquisa/user/rec', {
         withCredentials: true,
       });
 
@@ -134,7 +134,7 @@ function MensagemFeedback() {
         // Simula um delay para exibir o ícone de loading
         setTimeout(async () => {
           try {
-            const response = await axios.get('https://localhost:5000/verif/pesquisa/user/rec', {
+            const response = await axios.get('https://web-production-7ea7.up.railway.app/verif/pesquisa/user/rec', {
               withCredentials: true,
               params: {
                 pagina: paginaAtual,
@@ -175,7 +175,7 @@ function MensagemFeedback() {
       return;
     }
 
-    axios.post('https://localhost:5000/atualiz/user/fa/view', { id_fa: id }, {
+    axios.post('https://web-production-7ea7.up.railway.app/atualiz/user/fa/view', { id_fa: id }, {
       withCredentials: true
     })
       .then(response => {

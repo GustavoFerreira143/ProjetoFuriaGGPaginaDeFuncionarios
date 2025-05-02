@@ -37,7 +37,7 @@ function VerificaAtualizaUser() {
 
   useEffect(() => {
     function VerificaUser() {
-      axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+      axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
         withCredentials: true
       })
         .then(response => {
@@ -62,7 +62,7 @@ function VerificaAtualizaUser() {
     }
 
     setCarregandoUsers(true);
-    axios.get('https://localhost:5000/func/editaUserDados/user?pagina=0', {
+    axios.get('https://web-production-7ea7.up.railway.app/func/editaUserDados/user?pagina=0', {
       withCredentials: true
     })
       .then(response => {
@@ -91,7 +91,7 @@ function VerificaAtualizaUser() {
         setCarregandoUsers(true);
 
         setTimeout(() => {
-          axios.get(`https://localhost:5000/func/editaUserDados/user?pagina=${paginaAtual}`, {
+          axios.get(`https://web-production-7ea7.up.railway.app/func/editaUserDados/user?pagina=${paginaAtual}`, {
             withCredentials: true
           })
             .then(response => {
@@ -127,7 +127,7 @@ function VerificaAtualizaUser() {
     const novoTimeout = setTimeout(() => {
       if (pesquisaUser.trim() !== '') {
         setmensagem('Pesquisando...');
-        axios.get(`https://localhost:5000/func/editaUserDados/user?filtro=${encodeURIComponent(pesquisaUser)}`, {
+        axios.get(`https://web-production-7ea7.up.railway.app/func/editaUserDados/user?filtro=${encodeURIComponent(pesquisaUser)}`, {
           withCredentials: true
         })
           .then(response => {
@@ -155,7 +155,7 @@ function VerificaAtualizaUser() {
 
     setIsLoading(true)
 
-    axios.post('https://localhost:5000/func/editaUserDados/enviar', usuarioSelecionado, {
+    axios.post('https://web-production-7ea7.up.railway.app/func/editaUserDados/enviar', usuarioSelecionado, {
       withCredentials: true
     })
       .then(response => {

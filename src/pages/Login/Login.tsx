@@ -17,7 +17,7 @@ function Login() {
 
     useEffect(() => {
         function VerificaUser() {
-            axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', {nome:"Vazio"}, {
+            axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', {nome:"Vazio"}, {
                 withCredentials: true
             })
             .then(response => {
@@ -35,7 +35,7 @@ function Login() {
         seterror('');
         setisLoading(true);
 
-        axios.post('https://localhost:5000/func/conferelogin/login', dadosUser, {
+        axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/login', dadosUser, {
             withCredentials: true
         })
         .then(response => {

@@ -13,7 +13,7 @@ export function deletarNoticia() {
     setIsDelete(true);
     setErroDeletar(''); // Limpa mensagens anteriores
   
-    axios.post('https://localhost:5000/notic/func/encia/delet', {
+    axios.post('https://web-production-7ea7.up.railway.app/notic/func/encia/delet', {
       id: noticiaSelecionada.id,
       imagem: noticiaSelecionada.imagem,
       texto: noticiaSelecionada.texto

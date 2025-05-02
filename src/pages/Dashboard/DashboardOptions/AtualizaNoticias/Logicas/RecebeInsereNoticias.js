@@ -42,7 +42,7 @@ export function recebeInsereNoticias() {
       formData.append('mensagem', mensagemNoticia);
       formData.append('imagem', imagemFile);
 
-      const response = await axios.post('https://localhost:5000/enviafunc/usuario/noticia', formData, {
+      const response = await axios.post('https://web-production-7ea7.up.railway.app/enviafunc/usuario/noticia', formData, {
         withCredentials: true
       });
 

@@ -34,7 +34,7 @@ function AtualizaNoticias() {
 
   useEffect(() => {
     function VerificaUser() {
-      axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+      axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
         withCredentials: true
       })
         .then(response => {

@@ -17,7 +17,7 @@ function InserirUser() {
 
   useEffect(() => {
     function VerificaUser() {
-      axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+      axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
         withCredentials: true
       })
         .then(response => {
@@ -38,7 +38,7 @@ function InserirUser() {
 
     try {
       const response = await axios.post(
-        'https://localhost:5000/func/insereuserfurioso/user',
+        'https://web-production-7ea7.up.railway.app/func/insereuserfurioso/user',
         infosUser,
         {
           withCredentials: true, 

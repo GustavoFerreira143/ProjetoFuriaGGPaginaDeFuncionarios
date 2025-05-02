@@ -20,7 +20,7 @@ function EnvioDeAlertas() {
 
   useEffect(() => {
     function VerificaUser() {
-      axios.post('https://localhost:5000/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
+      axios.post('https://web-production-7ea7.up.railway.app/func/conferelogin/VerificaLogado', { nome: "Vazio" }, {
         withCredentials: true
       })
         .then(response => {
@@ -83,7 +83,7 @@ function EnvioDeAlertas() {
     setMensagem('');
     console.log(dadosEnvio.linkimg)
     try {
-      const response = await axios.post('https://localhost:5000/func/enviaEmailusers/aut', {
+      const response = await axios.post('https://web-production-7ea7.up.railway.app/func/enviaEmailusers/aut', {
         ...dadosEnvio,
         destino: usuarioDestino
       },
