@@ -284,7 +284,7 @@ function AtualizaNoticias() {
                 texto: 'Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site https://www.furia.gg .',
               }
             ].map((noticia, i) => {
-              const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
+              const textoPlano = typeof noticia.mensagem === 'string' ? noticia.mensagem : '';
               const textoComLinks = parseMensagemComLinks(textoPlano);
 
               const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
@@ -292,7 +292,7 @@ function AtualizaNoticias() {
 
               return (
                 <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
-                  <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                  <img src={noticia.imagem} className='w-full h-[80%] rounded-lg' />
                   <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
                     <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
                     {excedeLimite && (
@@ -300,7 +300,7 @@ function AtualizaNoticias() {
                         className="text-blue-400 ml-2 underline cursor-pointer"
                         onClick={() => {
                           setNoticiaSelecionada({
-                            img: noticia.img,
+                            img: noticia.imagem,
                             texto: textoPlano,
                           });
                           setMostrarModal(true);
