@@ -154,16 +154,27 @@ ________________________________________________________________________________
          |              |
          |              |_EnviarNoticia() <- Função que trata e envia noticias para a api que a armazena
          |                      
-         |_DashboardView.tsx <- 
+         |_DashboardView.tsx <- neste componente contém um modal e a página, este componente faz a criação e exibição das tabelas personalizadas com base nos retornos da função CarregaDashboard() que recebe os valores da respectiva tabela e insire nos seus respectivos componentes,  
+         |                      já o modal que somente adms tem acesso que utiliza a função handleSubmitGrafico que envia dados para o banco para criação de uma tabela com dados personalidados e a função exportToPNG ela funciona utilizando html2canvas para criar
+         |                      uma imagem da tabela de dados geradas.
          |  
-         |_EnvioDeAlertas.tsx <-
+         |_EnvioDeAlertas.tsx <- neste componente é onde pode ser enviado os emails personalizados aos usuários que autorizaram o envio de anuncios promossionais da furia, ele contém a função EnviarDadosPromocao() que valida se todos os campos obrifatórios foram 
+         |                       preenchidos e se foram preenchidos corretamente e a função EnviarEmail() que ao ser selecionado os usuários que vão receber o email ele valida os dados e envia para a API para a mesma enviar os emails. 
+         |  
          |
-         |_InserirUser.tsx <- 
+         |_InserirUser.tsx <- este componente é visivel somente para admins nele por meio da função enviarDadosUser() ele envia os dados para criação de novos usuários com base em dados digitados nos inputs e retorna sucesso ou erro.
          |
-         |_MensagemFeedback.tsx <-
+         |_MensagemFeedback.tsx <- neste componente é onde são exibidos todos os feedbacks dos usuários de forma ordenada e ao clicar no item é aberto um modal com os dados enviados pelo usuário, ao abrir a página é rodado a seguinte função RecebeInfosUser(), ela é responsavel por recuperar os dados de feedbacks armazenados e retorna os dados para serem manipulados.
+         |                         tambem contém um useEffect que detecta o final do scroll da página e envia requisições personalizadas para carregamento dinâmico de dados.
+         |                          outra função tambem é a enviaIdParaAtualizarVisualizado(id) que ao clicar para ver a ficha do cliente é atualizado o item visualizado da tabela para ter o controle de quais foram visualizadas
+         |                          contém a seguinte função aplicarFiltros utilizada para aplicar os filtros de página para retorno de informação personalizada de usuário.
+         |  
          |
-         |_VerificaAtualizaUser.tsx <-   
+         |_VerificaAtualizaUser.tsx <- este componente é visivel somente para admins nesta página é retornado os funcionarios presentes no sistema, possibilitando a edição de senha, desativação e troca de funções, este componente contém um useEffect responsável pelo primeiro carregamento do usuário para vizulizar os 10 primeiros funcionarios
+                                      outro useEffect faz o carregamento de forma dinamica enviando uma requisição para retornar mais usuários quando chega ao final da página
+                                      a outro useEffect que a cada vez que o state pesquisaUser for modificado ele realiza pesquisas de usuário e com settimout para evitar flood de dados.
+                                      esta função EnviarAlteracoes() é disparada quando o usuário modifica as informações do usuário e sanatiza e envia para a api para efetuar a alteração.    
   </pre>
-<h1>Por Fim Aproveite</h1>
+<h1 align="center">Por Fim Aproveite</h1>
 
 
