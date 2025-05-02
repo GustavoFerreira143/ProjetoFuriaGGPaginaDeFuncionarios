@@ -17,7 +17,7 @@ function AtualizaNoticias() {
   } = carregaNoticias()
 
   const [abreConfirmacao, setAbreConfirmacao] = useState(false)
-
+  const [mostrarModal, setMostrarModal] = useState(false);
   const {
     tipoModal, setTipoModal,
     imagemFile,
@@ -38,15 +38,15 @@ function AtualizaNoticias() {
         withCredentials: true
       })
         .then(response => {
-          
+
         })
         .catch(error => {
-          window.location.replace('/'); 
+          window.location.replace('/');
         });
     }
-  
-    VerificaUser(); 
-  
+
+    VerificaUser();
+
   }, []);
 
 
@@ -64,6 +64,39 @@ function AtualizaNoticias() {
 
   return (
     <>
+      {mostrarModal && noticiaSelecionada && (
+        <div
+          className="fixed w-full h-full bg-black/80 z-40 top-0">
+          <div className='overflow-y-auto md:overflow-y-hidden fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2  animate-fadeIn
+                  bg-white p-5 rounded shadow-lg w-full md:w-100 h-full md:w-190 md:h-160 z-30 mt-0 md:mt-0 
+                  transition-all duration-300 ease-in-out'>
+            <div className='grid grid-cols-12'>
+              <div className='col-span-11'>
+                <h1 className='text-center mb-2 ml-14 md:ml-20'><strong>Notícias</strong></h1>
+              </div>
+              <div className='col-span-1 cursor-pointer' onClick={() => setMostrarModal(false)}>
+                <img src="/x-lg.svg" alt="Fechar" className='h-10 mb-2' />
+              </div>
+            </div>
+            <hr />
+            <div className='mt-4'>
+              <img
+                src={noticiaSelecionada?.img}
+                alt="Imagem da notícia"
+                className='w-full h-100 rounded'
+              />
+              <p className='text-black text-justify px-2 md:px-4 w-full font-semibold'>
+                <span dangerouslySetInnerHTML={{
+                  __html: parseMensagemComLinks(noticiaSelecionada?.texto)
+                }} />
+              </p>
+            </div>
+          </div>
+        </div>
+
+      )}
+
+
       {tipoModal.adicionar && (
         <div className="fixed w-full h-full bg-black/80 z-30 transition-opacity duration-500 ease-in-out opacity-100 animate-fade">
           <div className='top-0 overflow-y-auto md:overflow-y-hidden fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2 bg-white p-5 rounded shadow-lg w-full md:w-100 h-full md:w-150 md:h-170 z-30 mt-0 transition-all duration-500 ease-in-out opacity-0 animate-fadeIn'>
@@ -109,7 +142,6 @@ function AtualizaNoticias() {
                 <textarea
                   placeholder='Insira o Texto da Noticia Aqui'
                   className='w-full p-2 border-b mt-3'
-                  maxLength={178}
                   value={mensagemNoticia}
                   onChange={e => setmensagemNoticia(e.currentTarget.value)}
                 />
@@ -241,47 +273,77 @@ function AtualizaNoticias() {
           </h1>
 
           <div className="overflow-x-auto whitespace-nowrap scroll-smooth px-4 py-5 " id="NoticiasFuria">
-            {!noticias ?
-              <>
-                <div className="inline-block md:w-180 h-80 md:h-120 bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                  <img src='/Noticias/NoticiaFuria.jpg' className='w-full h-50 md:h-100 rounded-lg'></img>
-                  <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black' >
-                    Treinos da Furia tem inicio em 24/04/2025
+
+            {!noticias ? [
+              { img: '/Noticias/NoticiaFuria.jpg', texto: 'Treinos da Furia tem inicio em 24/04/2025 https://www.furia.gg' },
+              { img: '/Noticias/CalendarioDeJogosFuria.jpg', texto: 'Calendario de Jogos Kings League já disponivel' },
+              { img: '/Noticias/NoticiaFuria2.jpg', texto: 'A furiagg anunciou a ida de skullzcs ao banco de reservas. yek1ndar entra no time como stand-in.' },
+              { img: '/Noticias/FuriaKingsLeague.jpg', texto: 'Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br https://www.furia.gg com a liderança geral da competição.' },
+              {
+                img: '/Noticias/FuriaAdidas.jpg',
+                texto: 'Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir basta ir no site https://www.furia.gg .',
+              }
+            ].map((noticia, i) => {
+              const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
+              const textoComLinks = parseMensagemComLinks(textoPlano);
+
+              const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
+              const excedeLimite = textoPlano.length > 100;
+
+              return (
+                <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                  <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                  <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
+                    <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
+                    {excedeLimite && (
+                      <button
+                        className="text-blue-400 ml-2 underline cursor-pointer"
+                        onClick={() => {
+                          setNoticiaSelecionada({
+                            img: noticia.img,
+                            texto: textoPlano,
+                          });
+                          setMostrarModal(true);
+                        }}
+                      >
+                        Ver Completo
+                      </button>
+                    )}
                   </p>
                 </div>
-                <div className="inline-block md:w-180 h-80 md:h-120  bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                  <img src='/Noticias/CalendarioDeJogosFuria.jpg' className='w-full h-50 md:h-100 rounded-lg'></img>
-                  <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black'>
-                    Calendario de Jogos Kings League já disponivel
-                  </p>
-                </div>
-                <div className="inline-block md:w-180 h-80 md:h-120  bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                  <img src='/Noticias/NoticiaFuria2.jpg' className='w-full h-50 md:h-100 rounded-lg'></img>
-                  <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black'>
-                    A furiagg anunciou a ida de skullzcs ao banco de reservas. yek1ndar entra no time como stand-in.
-                  </p>
-                </div>
-                <div className="inline-block md:w-180 h-80 md:h-120  bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                  <img src='/Noticias/FuriaKingsLeague.jpg' className='w-full h-50 md:h-100 rounded-lg'></img>
-                  <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black'>
-                    Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br com a liderança geral da competição.
-                  </p>
-                </div>
-                <div className="inline-block md:w-180 h-80 md:h-120  bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                  <img src='/Noticias/FuriaAdidas.jpg' className='w-full h-50 md:h-100 rounded-lg'></img>
-                  <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black'>
-                    Furiagg anuncia patrocínio de adidasbrasil e nova jersey para Conferir bastá ir no site <a className='text-blue-500' href='https://www.furia.gg'>https://www.furia.gg</a>.
-                  </p>
-                </div>
-              </> :
-              noticiasRecebidas.map((noticia, i) => (
-                  <div key={i} className="inline-block md:w-180 h-80 md:h-120 bg-white text-white text-center mx-2 rounded-lg shadow-lg ">
-                    <img src={noticia.imagem} className='w-full h-50 md:h-100 rounded-lg' />
-                    <p className='mt-4 px-4 h-[6rem] overflow-hidden text-wrap text-black'
-                      dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticia.mensagem) }}
-                    />
+              );
+            })
+              :
+              noticiasRecebidas.map((noticia, i) => {
+                const textoPlano = typeof noticia.texto === 'string' ? noticia.texto : '';
+                const textoComLinks = parseMensagemComLinks(textoPlano);
+
+                const textoCortado = textoPlano.length > 100 ? textoPlano.slice(0, 100) + '...' : textoComLinks;
+                const excedeLimite = textoPlano.length > 100;
+
+                return (
+                  <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-black text-white text-center mx-2 rounded-lg shadow-lg">
+                    <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                    <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
+                      <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
+                      {excedeLimite && (
+                        <button
+                          className="text-blue-400 ml-2 underline cursor-pointer"
+                          onClick={() => {
+                            setNoticiaSelecionada({
+                              img: noticia.img,
+                              texto: textoPlano,
+                            });
+                            setMostrarModal(true);
+                          }}
+                        >
+                          Ver Completo
+                        </button>
+                      )}
+                    </p>
                   </div>
-              ))}
+                );
+              })}
 
           </div>
         </div>
