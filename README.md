@@ -23,6 +23,12 @@
       Cadastro de Usuário e edição de Dados 
   </li>
 </ul>
+<p>
+  Para ter acesso a aplicação basta seguir: https://furiasitefuncionarios.netlify.app
+</p>
+<p>
+  OBS:necessario acesso de Usuario
+</p>
 <h3>Layout da Aplicação</h3>
 <p>
   Para esse Projeto foram utilizados rigorosos critérios para criação de layout seguindo ao máximo o padrão da marca furia, referencias mais utilizadas foram do site de catalogo https://www.furia.gg .
