@@ -359,6 +359,7 @@ function MensagemFeedback() {
                 <option value="LinkedIn">LinkedIn</option>
                 <option value="Discord">Discord</option>
                 <option value="Reddit">Reddit</option>
+                <option value="Outro">Outro</option>
               </select>
 
               <select name="interesseEmComp" value={filtros.interesseEmComp} onChange={handleFiltroChange} className="w-full p-2 border rounded">
