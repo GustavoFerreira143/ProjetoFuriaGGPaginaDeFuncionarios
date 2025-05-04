@@ -12,7 +12,7 @@ function MensagemFeedback() {
   const [carregandoUsers, setCarregandoUsers] = useState(false)
   const [carregamentoFinalizado, setCarregamentoFinalizado] = useState(false);
   const [mostrarDropdown, setMostrarDropdown] = useState(false);
-  const [paginaAtual, setPaginaAtual] = useState(1); // inicia com 0
+  const [paginaAtual, setPaginaAtual] = useState(0); // inicia com 0
   const [filtros, setFiltros] = useState({
     estado: '',
     idadeMin: '',
@@ -56,7 +56,7 @@ function MensagemFeedback() {
 
   const aplicarFiltros = () => {
     // Reinicia os estados relevantes
-    setPaginaAtual(1);
+    setPaginaAtual(0);
     setCarregamentoFinalizado(false);
     setCarregandoUsers(true);
 
@@ -384,7 +384,7 @@ function MensagemFeedback() {
                 <option value="false">Sim</option>
                 <option value="true">Não</option>
               </select>
-              <button onClick={(e) => { aplicarFiltros(); toggleDropdown(); setPaginaAtual(1) }} className="w-full bg-black text-white p-2 rounded hover:bg-gray-800 transition cursor-pointer">
+              <button onClick={(e) => { aplicarFiltros(); toggleDropdown(); setPaginaAtual(0) }} className="w-full bg-black text-white p-2 rounded hover:bg-gray-800 transition cursor-pointer">
                 Aplicar Filtros
               </button>
             </div>
