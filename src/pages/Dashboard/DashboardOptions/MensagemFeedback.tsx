@@ -108,7 +108,6 @@ function MensagemFeedback() {
 
       const dados = Array.isArray(response.data) ? response.data : [];
       setUsuarios(dados);
-      console.log(usuarios)
       // Em caso de sucesso, define como página 1
       setPaginaAtual(1);
 
@@ -194,7 +193,6 @@ function MensagemFeedback() {
         }
       });
   }
-  console.log(usuarios)
   return (
     <>
       {abreJanela && (
