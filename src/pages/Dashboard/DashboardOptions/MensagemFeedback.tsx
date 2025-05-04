@@ -12,7 +12,7 @@ function MensagemFeedback() {
   const [carregandoUsers, setCarregandoUsers] = useState(false)
   const [carregamentoFinalizado, setCarregamentoFinalizado] = useState(false);
   const [mostrarDropdown, setMostrarDropdown] = useState(false);
-  const [paginaAtual, setPaginaAtual] = useState(1); // inicia com 0
+  const [paginaAtual, setPaginaAtual] = useState(0);
   const [filtros, setFiltros] = useState({
     estado: '',
     idadeMin: '',
@@ -56,7 +56,7 @@ function MensagemFeedback() {
 
   const aplicarFiltros = () => {
     // Reinicia os estados relevantes
-    setPaginaAtual(1);
+    setPaginaAtual(0);
     setCarregamentoFinalizado(false);
     setCarregandoUsers(true);
 
@@ -100,6 +100,10 @@ function MensagemFeedback() {
     try {
       const response = await axios.get('https://web-production-7ea7.up.railway.app/verif/pesquisa/user/rec', {
         withCredentials: true,
+        params: {
+          pagina: 0,
+          ...filtros
+        }
       });
 
       const dados = Array.isArray(response.data) ? response.data : [];
