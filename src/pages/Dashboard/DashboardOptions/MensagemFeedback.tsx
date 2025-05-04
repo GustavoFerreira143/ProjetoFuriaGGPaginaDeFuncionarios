@@ -104,7 +104,7 @@ function MensagemFeedback() {
 
       const dados = Array.isArray(response.data) ? response.data : [];
       setUsuarios(dados);
-
+      console.log(dados)
       // Em caso de sucesso, define como página 1
       setPaginaAtual(1);
 
