@@ -125,7 +125,7 @@ function MensagemFeedback() {
   useEffect(() => {
     const container = document.getElementById('container');
     if (!container) return;
-
+  
     const handleScroll = () => {
       if (
         container.scrollTop + container.clientHeight >= container.scrollHeight - 10 &&
@@ -133,42 +133,38 @@ function MensagemFeedback() {
         !carregamentoFinalizado
       ) {
         setCarregandoUsers(true);
-
-        // Simula um delay para exibir o ícone de loading
+  
         setTimeout(async () => {
           try {
             const response = await axios.get('https://web-production-7ea7.up.railway.app/verif/pesquisa/user/rec', {
               withCredentials: true,
               params: {
-                pagina: paginaAtual,
+                pagina: paginaAtual, 
                 ...filtros
               }
             });
-
+  
             const novosUsuarios = Array.isArray(response.data) ? response.data : [];
-
+  
             if (novosUsuarios.length > 0) {
               setUsuarios(prev => [...prev, ...novosUsuarios]);
               setPaginaAtual(prev => prev + 1);
             } else {
               setCarregamentoFinalizado(true);
             }
-
+  
           } catch (err) {
             setErro('Erro ao carregar mais usuários.');
           } finally {
             setCarregandoUsers(false);
           }
-        }, 1500); // Delay de 1.5 segundos para exibir o ícone de loading
+        }, 1500);
       }
     };
-
+  
     container.addEventListener('scroll', handleScroll);
-
-    return () => {
-      container.removeEventListener('scroll', handleScroll);
-    };
-  }, [paginaAtual, filtros, carregandoUsers, carregamentoFinalizado]);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, [carregandoUsers, carregamentoFinalizado, filtros]); 
 
 /*-------------------------------------------------------------------------------Atualiza Id Vizualizado*/
 
