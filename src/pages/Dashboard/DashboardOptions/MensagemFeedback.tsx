@@ -386,7 +386,7 @@ function MensagemFeedback() {
                 <option value="false">Sim</option>
                 <option value="true">Não</option>
               </select>
-              <button onClick={(e) => { aplicarFiltros(); toggleDropdown(); setPaginaAtual(0) }} className="w-full bg-black text-white p-2 rounded hover:bg-gray-800 transition cursor-pointer">
+              <button onClick={(e) => { aplicarFiltros(); toggleDropdown(); }} className="w-full bg-black text-white p-2 rounded hover:bg-gray-800 transition cursor-pointer">
                 Aplicar Filtros
               </button>
             </div>
