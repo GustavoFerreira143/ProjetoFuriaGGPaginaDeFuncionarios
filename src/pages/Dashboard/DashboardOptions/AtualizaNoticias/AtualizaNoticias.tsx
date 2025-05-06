@@ -276,7 +276,7 @@ function AtualizaNoticias() {
 
             {!noticias ? [
               { img: '/Noticias/NoticiaFuria.jpg', texto: 'Treinos da Furia tem inicio em 24/04/2025 https://www.furia.gg' },
-              { img: '/Noticias/CalendarioDeJogosFuria.jpg', texto: 'Calendario de Jogos Kings League já disponivel' },
+              { img: '/Noticias/CalendarioDeJogosFuria.jpg', texto: 'Calendario de Jogos Kings League já disponivel para mais informações acesse https://kingsleague.pro/pt/times/50-furia-fc' },
               { img: '/Noticias/NoticiaFuria2.jpg', texto: 'A furiagg anunciou a ida de skullzcs ao banco de reservas. yek1ndar entra no time como stand-in.' },
               { img: '/Noticias/FuriaKingsLeague.jpg', texto: 'Com duas vitórias, a equipe da furiagg iniciou a sua participação na kingsleague_br https://www.furia.gg com a liderança geral da competição.' },
               {
@@ -292,7 +292,7 @@ function AtualizaNoticias() {
 
               return (
                 <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-white text-black text-center mx-2 rounded-lg shadow-lg">
-                  <img src={noticia.img} className='w-full h-[80%] rounded-lg' />
+                  <img src={noticia.img} className='w-full h-[80%] rounded-lg object-cover' />
                   <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
                     <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
                     {excedeLimite && (
@@ -323,7 +323,7 @@ function AtualizaNoticias() {
 
                 return (
                   <div key={i} className="inline-block lg:w-[50%] h-110 w-[100%] md:w-[80%] md:h-150 bg-white text-black text-center mx-2 rounded-lg shadow-lg">
-                    <img src={noticia.imagem} className='w-full h-[80%] rounded-lg' />
+                    <img src={noticia.imagem} className='w-full h-[80%] rounded-lg object-cover' />
                     <p className='mt-4 px-4 h-[20%] overflow-hidden text-wrap'>
                       <span dangerouslySetInnerHTML={{ __html: textoCortado }} />
                       {excedeLimite && (
