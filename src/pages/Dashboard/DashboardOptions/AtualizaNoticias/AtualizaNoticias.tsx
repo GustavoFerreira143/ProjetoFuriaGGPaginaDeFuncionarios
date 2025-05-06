@@ -189,7 +189,7 @@ function AtualizaNoticias() {
                   <img src={noticia.imagem} className="min-w-[25%] max-w-[25%] h-full rounded-lg" />
 
                   <p
-                    className="text-wrap text-black ml-5 w-[30%]"
+                    className="text-wrap text-black ml-5 h-[100%] overflow-hidden"
                     dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticia.mensagem) }}
                   />
 
@@ -237,7 +237,7 @@ function AtualizaNoticias() {
             <div className="w-full h-[50%] md:h-[25%] bg-white text-white mx-2 rounded-lg shadow-lg mb-2 flex items-center">
               <img src={noticiaSelecionada.imagem} className="min-w-[25%] h-full rounded-lg" />
               <p
-                className="text-wrap text-black ml-5 w-full"
+                className="text-wrap text-black ml-5 h-[100%] overflow-hidden"
                 dangerouslySetInnerHTML={{ __html: parseMensagemComLinks(noticiaSelecionada.texto) }}
               />
             </div>
