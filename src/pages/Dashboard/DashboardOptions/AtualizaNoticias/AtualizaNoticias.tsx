@@ -68,7 +68,7 @@ function AtualizaNoticias() {
         <div
           className="fixed w-full h-full bg-black/80 z-40 top-0">
           <div className='overflow-y-auto md:overflow-y-hidden fixed md:top-1/2 md:left-1/2 transform md:-translate-x-1/2 md:-translate-y-1/2  animate-fadeIn
-                  bg-white p-5 rounded shadow-lg w-full md:w-100 h-full md:w-190 md:h-160 z-30 mt-0 md:mt-0 
+                  bg-white p-5 rounded shadow-lg w-full md:w-95 h-full md:w-140 md:h-170 z-30 mt-0 md:mt-0 
                   transition-all duration-300 ease-in-out'>
             <div className='grid grid-cols-12'>
               <div className='col-span-11'>
@@ -83,9 +83,9 @@ function AtualizaNoticias() {
               <img
                 src={noticiaSelecionada?.img}
                 alt="Imagem da notícia"
-                className='w-full h-100 rounded'
+                className='w-full h-110 rounded'
               />
-              <p className='text-black text-justify px-2 md:px-4 w-full font-semibold'>
+              <p className='text-black text-center px-2 md:px-4 w-full '>
                 <span dangerouslySetInnerHTML={{
                   __html: parseMensagemComLinks(noticiaSelecionada?.texto)
                 }} />
